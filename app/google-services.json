@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "779326553250",
+    "firebase_url": "https://oriented-news.firebaseio.com",
+    "project_id": "oriented-news",
+    "storage_bucket": "oriented-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779326553250:android:225c6b83c52ab246",
+        "android_client_info": {
+          "package_name": "com.matej.orientednews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779326553250-kho4denaamm0v736tb5q9q5m7ne2nsh0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.matej.orientednews",
+            "certificate_hash": "2d24e5162f1a30d0f50a06a669656478d0659534"
+          }
+        },
+        {
+          "client_id": "779326553250-3r06huv3n5v7f69odj3h1abhmq46s0t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy6PydUJthHvrYofpgZCSb7Gd5KDKl5Ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779326553250-3r06huv3n5v7f69odj3h1abhmq46s0t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
