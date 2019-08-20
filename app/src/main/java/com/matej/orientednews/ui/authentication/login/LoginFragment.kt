@@ -1,6 +1,7 @@
 package com.matej.orientednews.ui.authentication.login
 
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.matej.orientednews.OrientedNews
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 import com.matej.orientednews.common.showFragment
 import com.matej.orientednews.model.UserDataRequest
 import com.matej.orientednews.ui.authentication.registration.RegisterFragment
+import com.matej.orientednews.ui.news.NewsActivity
 import org.koin.android.ext.android.inject
 
 class LoginFragment : BaseFragment(), LoginContract.View {
@@ -36,13 +38,11 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     private fun onSignUpClicked() {
-        activity?.showFragment(R.id.authFragmentContainer,
-            RegisterFragment.newInstance()
-        )
+        activity?.showFragment(R.id.authFragmentContainer, RegisterFragment.newInstance())
     }
 
     override fun onLoginSuccessful() {
-        Toast.makeText(OrientedNews.instance, "Korisnik uspijesno prijavljen", Toast.LENGTH_SHORT).show()
+        startActivity(NewsActivity::class.java)
     }
 
     override fun onLoginFailed() {

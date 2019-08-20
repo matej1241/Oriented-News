@@ -5,15 +5,13 @@ import android.os.Bundle
 import com.matej.orientednews.R
 import com.matej.orientednews.common.showFragment
 import com.matej.orientednews.ui.authentication.login.LoginFragment
+import com.matej.orientednews.ui.base.BaseActivity
 
-class AuthenticationActivity : AppCompatActivity() {
+class AuthenticationActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_authentication)
+    override fun getLayoutResourceId(): Int = R.layout.activity_authentication
 
-        showFragment(R.id.authFragmentContainer,
-            LoginFragment.newInstance()
-        )
+    override fun setupUi() {
+        showFragment(R.id.authFragmentContainer, LoginFragment.newInstance())
     }
 }

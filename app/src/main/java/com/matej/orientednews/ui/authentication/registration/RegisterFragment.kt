@@ -10,6 +10,7 @@ import com.matej.orientednews.common.showFragment
 import com.matej.orientednews.model.UserDataRequest
 import com.matej.orientednews.ui.authentication.login.LoginFragment
 import com.matej.orientednews.ui.base.BaseFragment
+import com.matej.orientednews.ui.news.NewsActivity
 import kotlinx.android.synthetic.main.fragment_registration.*
 import org.koin.android.ext.android.inject
 
@@ -42,7 +43,7 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     override fun onRegisterSuccessful() {
-        Toast.makeText(OrientedNews.instance, "Korisnik uspijesno registriran", Toast.LENGTH_SHORT).show()
+        startActivity(NewsActivity::class.java)
     }
 
     override fun onRegisterFailed() {

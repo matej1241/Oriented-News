@@ -10,4 +10,7 @@
     <string name="log_in_instead">Log in instead</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
+    <string name="botNavBarNewsTitle">News</string>
+    <string name="botNavBarFavouritesTitle">Favourites</string>
+    <string name="botNavBarProfileTitle">Profile</string>
 </resources>
