@@ -1,6 +1,6 @@
 package com.matej.orientednews.ui.authentication.registration
 
-import com.matej.orientednews.model.UserDataRequest
+import com.matej.orientednews.model.authentication.UserDataRequest
 
 interface RegisterContract {
 

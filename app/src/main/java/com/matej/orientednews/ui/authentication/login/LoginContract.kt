@@ -1,6 +1,6 @@
 package com.matej.orientednews.ui.authentication.login
 
-import com.matej.orientednews.model.UserDataRequest
+import com.matej.orientednews.model.authentication.UserDataRequest
 
 interface LoginContract {
 

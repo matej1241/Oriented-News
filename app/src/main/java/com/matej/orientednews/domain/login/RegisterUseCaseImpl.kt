@@ -5,7 +5,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.matej.orientednews.common.ErrorLambda
 import com.matej.orientednews.common.SuccessLambda
-import com.matej.orientednews.model.UserDataRequest
+import com.matej.orientednews.model.authentication.UserDataRequest
 
 class RegisterUseCaseImpl(private val auth: FirebaseAuth): RegisterUseCase {
     override fun execute(body: UserDataRequest, onSuccess: SuccessLambda<Task<AuthResult>>, onFailure: ErrorLambda<Task<AuthResult>>){

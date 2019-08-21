@@ -7,7 +7,7 @@ import com.matej.orientednews.OrientedNews
 
 import com.matej.orientednews.R
 import com.matej.orientednews.common.showFragment
-import com.matej.orientednews.model.UserDataRequest
+import com.matej.orientednews.model.authentication.UserDataRequest
 import com.matej.orientednews.ui.authentication.login.LoginFragment
 import com.matej.orientednews.ui.base.BaseFragment
 import com.matej.orientednews.ui.news.NewsActivity
@@ -30,10 +30,11 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     private fun onRegisterClicked() {
-        presenter.onRegisterClicked(UserDataRequest(
-            regEmail.text.toString(),
-            regUsername.text.toString(),
-            regPassword.text.toString()
+        presenter.onRegisterClicked(
+            UserDataRequest(
+                regEmail.text.toString(),
+                regUsername.text.toString(),
+                regPassword.text.toString()
             )
         )
     }

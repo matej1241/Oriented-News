@@ -4,7 +4,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.matej.orientednews.common.ErrorLambda
 import com.matej.orientednews.common.SuccessLambda
-import com.matej.orientednews.model.UserDataRequest
+import com.matej.orientednews.model.authentication.UserDataRequest
 
 interface RegisterUseCase {
     fun execute(body: UserDataRequest, onSuccess: SuccessLambda<Task<AuthResult>>, onFailure: ErrorLambda<Task<AuthResult>>)
