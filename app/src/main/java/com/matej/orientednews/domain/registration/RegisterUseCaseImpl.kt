@@ -1,4 +1,4 @@
-package com.matej.orientednews.domain.login
+package com.matej.orientednews.domain.registration
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult

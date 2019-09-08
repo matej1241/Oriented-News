@@ -2,9 +2,7 @@ package com.matej.orientednews
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import com.matej.orientednews.di.domainModule
-import com.matej.orientednews.di.firebaseModule
-import com.matej.orientednews.di.presentationModule
+import com.matej.orientednews.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -19,7 +17,7 @@ class OrientedNews: Application() {
         instance = this
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         startKoin {
-            modules(listOf(domainModule, firebaseModule, presentationModule))
+            modules(listOf(domainModule, firebaseModule, presentationModule, networkingModule, databaseModule, repositoryModule))
             androidContext(this@OrientedNews)
         }
     }

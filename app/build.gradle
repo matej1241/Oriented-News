@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -36,10 +39,21 @@ dependencies {
     //ui
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.koushikdutta.ion:ion:2.+'
+
+    //networking
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 
     //firebase
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
 
     //di
     implementation "org.koin:koin-android:2.0.1"
+
+    //db
+    implementation "androidx.room:room-runtime:2.2.0-beta01"
+    kapt "android.arch.persistence.room:compiler:2.2.0-beta01"
 }

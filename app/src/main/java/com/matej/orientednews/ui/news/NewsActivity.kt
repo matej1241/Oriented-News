@@ -5,7 +5,7 @@ import com.matej.orientednews.R
 import com.matej.orientednews.common.showFragment
 import com.matej.orientednews.ui.base.BaseActivity
 import com.matej.orientednews.ui.news.favourites.FavouritesFragment
-import com.matej.orientednews.ui.news.newsList.NewsFragment
+import com.matej.orientednews.ui.news.newsList.NewsContainerFragment
 import com.matej.orientednews.ui.news.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_news.*
 
@@ -14,7 +14,7 @@ class NewsActivity : BaseActivity() {
     private val onNavItemSelected  = BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId){
             R.id.news -> {
-                showFragment(R.id.newsFragmentContainer, NewsFragment.newInstance())
+                showFragment(R.id.newsFragmentContainer, NewsContainerFragment.newInstance())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.favourites -> {
@@ -32,7 +32,7 @@ class NewsActivity : BaseActivity() {
     override fun getLayoutResourceId(): Int = R.layout.activity_news
 
     override fun setupUi() {
-        showFragment(R.id.newsFragmentContainer, NewsFragment.newInstance())
+        showFragment(R.id.newsFragmentContainer, NewsContainerFragment.newInstance())
         setOnClickListeners()
     }
 

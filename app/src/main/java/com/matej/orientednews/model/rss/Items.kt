@@ -11,4 +11,6 @@ data class Items (
     val content: String,
     val enclosure: Enclosure,
     val category: List<Category>
-)
+){
+    var isFavourite: Boolean = false
+}

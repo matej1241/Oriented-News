@@ -2,7 +2,7 @@ package com.matej.orientednews.presentation
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
-import com.matej.orientednews.domain.registration.LoginUseCase
+import com.matej.orientednews.domain.login.LoginUseCase
 import com.matej.orientednews.model.authentication.UserDataRequest
 import com.matej.orientednews.ui.authentication.login.LoginContract
 
