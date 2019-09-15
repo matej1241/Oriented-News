@@ -12,6 +12,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".ui.webView.NewsWebView"
+                android:label="@string/title_activity_news_web_view"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".ui.news.NewsActivity">
         </activity>
         <activity android:name=".ui.authentication.AuthenticationActivity">

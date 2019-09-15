@@ -12,6 +12,8 @@ import com.matej.orientednews.domain.news.KamenjarRssUseCase
 import com.matej.orientednews.domain.news.KamenjarRssUseCaseImpl
 import com.matej.orientednews.domain.login.LoginUseCase
 import com.matej.orientednews.domain.login.LoginUseCaseImpl
+import com.matej.orientednews.domain.logout.LogoutUseCase
+import com.matej.orientednews.domain.logout.LogoutUseCaseImpl
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -21,4 +23,5 @@ val domainModule = module {
     factory<IndexRssUseCase> { IndexRssUseCaseImpl(get()) }
     factory<KamenjarRssUseCase> { KamenjarRssUseCaseImpl(get()) }
     factory<FavouritesDbInteractor> { FavouritesDbInteractorImpl(get()) }
+    factory<LogoutUseCase> { LogoutUseCaseImpl(get()) }
 }

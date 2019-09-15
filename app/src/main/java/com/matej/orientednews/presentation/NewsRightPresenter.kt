@@ -26,11 +26,15 @@ class NewsRightPresenter(
         favouritesDbInteractor.insert(favouriteNews)
     }
 
+    override fun removeFavourite(link: String) {
+        favouritesDbInteractor.delete(link)
+    }
+
     override fun getCurrentUser(): String {
         return currentUserUseCase.execute()
     }
 
-    private fun getFavouriteNews(): List<FavouriteNews> = favouritesDbInteractor.getAllNews()
+    private fun getFavouriteNews(): List<FavouriteNews> = favouritesDbInteractor.getAllNews(currentUserUseCase.execute())
 
     private fun onGetNewsOkResponse(news: RssFeed?) {
         val favourites = getFavouriteNews()

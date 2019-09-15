@@ -36,6 +36,13 @@ class FavouriteNewsAdapter: RecyclerView.Adapter<FavouriteNewsHolder>() {
     fun refreshData(){
         notifyDataSetChanged()
     }
+
+    fun getCurrentItem(position: Int) = favouriteNews[position]
+
+    fun removeItem(item: FavouriteNews){
+        this.favouriteNews.remove(item)
+        notifyDataSetChanged()
+    }
 }
 
 class FavouriteNewsHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -47,7 +54,7 @@ class FavouriteNewsHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         itemView.setFavouriteImg.setImageResource(0)
         itemView.titleText.text = news.title
         Ion.with(itemView.feedImage)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.news_placeholder)
             .load(news.thumbnail)
     }
 }

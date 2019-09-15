@@ -9,11 +9,14 @@ import com.matej.orientednews.R
 import com.matej.orientednews.common.FavouriteClickListener
 import com.matej.orientednews.common.INDEX
 import com.matej.orientednews.common.KAMENJAR
+import com.matej.orientednews.common.NewsClickListener
 import com.matej.orientednews.model.rss.Feed
 import com.matej.orientednews.model.rss.Items
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class NewsAdapter(private val favouriteClickListener: FavouriteClickListener): RecyclerView.Adapter<NewsHolder>() {
+class NewsAdapter(
+    private val favouriteClickListener: FavouriteClickListener,
+    private val newsClickListener: NewsClickListener): RecyclerView.Adapter<NewsHolder>() {
 
     private val news: MutableList<Items> = mutableListOf()
     private lateinit var feed: Feed
@@ -26,7 +29,7 @@ class NewsAdapter(private val favouriteClickListener: FavouriteClickListener): R
     override fun getItemCount(): Int = news.size
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {
-        holder.bindData(news[position], feed, this.favouriteClickListener)
+        holder.bindData(news[position], feed, this.favouriteClickListener, this.newsClickListener)
     }
 
     fun setData(news: List<Items>) {
@@ -47,17 +50,22 @@ class NewsAdapter(private val favouriteClickListener: FavouriteClickListener): R
 }
 
 class NewsHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-    fun bindData(item: Items, feed: Feed, favouriteClickListener: FavouriteClickListener){
-        itemView.setOnClickListener { favouriteClickListener(item, feed) }
+    fun bindData(item: Items, feed: Feed, favouriteClickListener: FavouriteClickListener, newsClickListener: NewsClickListener){
+        itemView.feedImage.setOnClickListener { newsClickListener(item.link) }
+        itemView.titleText.setOnClickListener { newsClickListener(item.link) }
+        itemView.setFavouriteImg.setOnClickListener { favouriteClickListener(item, feed) }
+
         if (item.isFavourite) itemView.setFavouriteImg.setImageResource(R.drawable.ic_favorite_orange_24dp)
         else itemView.setFavouriteImg.setImageResource(R.drawable.ic_favorite_border_orange)
+
         when(feed.title){
             INDEX -> itemView.sourceText.text = "Index.hr"
             KAMENJAR -> itemView.sourceText.text = "Kamenjar.com"
         }
+
         itemView.titleText.text = item.title
         Ion.with(itemView.feedImage)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.news_placeholder)
             .load(item.thumbnail)
     }
 }

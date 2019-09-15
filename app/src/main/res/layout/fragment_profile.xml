@@ -6,15 +6,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 >
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/profileAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Profile"
-    />
+            android:background="@drawable/header_gradient_bg"
+    >
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+            <TextView
+                    android:id="@+id/userNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="#ffffff"
+                    android:text=""
+                    android:textSize="24sp"
+            />
+
+            <TextView
+                    android:id="@+id/logOutText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="#ffffff"
+                    android:text="Sign out"
+                    android:textSize="16sp"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/pieChart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/profileAppBar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+    />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

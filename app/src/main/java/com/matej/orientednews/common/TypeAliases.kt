@@ -7,5 +7,7 @@ typealias SuccessLambda<T> = (T) -> Unit
 typealias ErrorLambda<T> = (T) -> Unit
 typealias IndexErrorLambda = () -> Unit
 typealias FavouriteClickListener = (item: Items, feed: Feed) -> Unit
+typealias NewsClickListener = (url: String) -> Unit
 typealias CurrentUserSuccess = (currentUser: String) -> Unit
 typealias CurrentUserFailed = () -> Unit
+typealias LogoutSuccess = () -> Unit

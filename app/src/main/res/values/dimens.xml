@@ -11,4 +11,5 @@
     <dimen name="buttonTextSize">12sp</dimen>
     <dimen name="buttonMarginTop">50dp</dimen>
     <dimen name="bottomNavBarHeight">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 package com.matej.orientednews.ui.authentication.registration
 
 
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.matej.orientednews.OrientedNews
@@ -11,6 +12,7 @@ import com.matej.orientednews.model.authentication.UserDataRequest
 import com.matej.orientednews.ui.authentication.login.LoginFragment
 import com.matej.orientednews.ui.base.BaseFragment
 import com.matej.orientednews.ui.news.NewsActivity
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 import org.koin.android.ext.android.inject
 
@@ -30,6 +32,7 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     private fun onRegisterClicked() {
+        loginProgress.visibility = View.VISIBLE
         presenter.onRegisterClicked(
             UserDataRequest(
                 regEmail.text.toString(),
@@ -44,10 +47,12 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     override fun onRegisterSuccessful() {
+        loginProgress.visibility = View.GONE
         startActivity(NewsActivity::class.java)
     }
 
     override fun onRegisterFailed() {
+        loginProgress.visibility = View.GONE
         Toast.makeText(OrientedNews.instance, "Pogreska", Toast.LENGTH_SHORT).show()
     }
 

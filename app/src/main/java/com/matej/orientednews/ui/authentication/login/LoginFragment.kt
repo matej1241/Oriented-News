@@ -1,6 +1,7 @@
 package com.matej.orientednews.ui.authentication.login
 
 
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.matej.orientednews.OrientedNews
@@ -21,6 +22,7 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     override fun getLayoutResourceId(): Int = R.layout.fragment_login
 
     override fun setupUi() {
+        loginProgress.visibility = View.GONE
         presenter.setView(this)
     }
 
@@ -30,6 +32,7 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     private fun onLoginClicked() {
+        loginProgress.visibility = View.VISIBLE
         presenter.onLoginClicked(
             UserDataRequest(
                 email = authEmail.text.toString(),
@@ -43,10 +46,12 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     override fun onLoginSuccessful() {
+        loginProgress.visibility = View.GONE
         startActivity(NewsActivity::class.java)
     }
 
     override fun onLoginFailed() {
+        loginProgress.visibility = View.GONE
         Toast.makeText(OrientedNews.instance, "Pogreska", Toast.LENGTH_SHORT).show()
     }
 

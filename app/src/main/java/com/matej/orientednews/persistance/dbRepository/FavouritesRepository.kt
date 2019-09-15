@@ -6,5 +6,7 @@ interface FavouritesRepository {
 
     fun insert(favouriteNews: FavouriteNews)
 
-    fun getAllNews(): List<FavouriteNews>
+    fun delete(link: String)
+
+    fun getAllNews(user: String): List<FavouriteNews>
 }

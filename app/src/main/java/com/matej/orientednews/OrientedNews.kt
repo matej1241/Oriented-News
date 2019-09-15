@@ -17,7 +17,14 @@ class OrientedNews: Application() {
         instance = this
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         startKoin {
-            modules(listOf(domainModule, firebaseModule, presentationModule, networkingModule, databaseModule, repositoryModule))
+            modules(listOf(
+                domainModule,
+                firebaseModule,
+                presentationModule,
+                networkingModule,
+                databaseModule,
+                repositoryModule
+            ))
             androidContext(this@OrientedNews)
         }
     }

@@ -6,14 +6,12 @@ interface FavouritesContract {
 
     interface View{
         fun onGetFavouritesSuccessful(favoriteNews: List<FavouriteNews>)
-        fun onGetFavouritesFailed()
-        fun onGetCurrentUserSuccessful(currentUser: String)
-        fun onGetCurrentUserFailed()
     }
 
     interface Presenter{
         fun setView(view: View)
-        fun getFavouriteNews() : List<FavouriteNews>
+        fun getFavouriteNews(user: String)
         fun getCurrentUser(): String
+        fun removeFavourite(link: String)
     }
 }

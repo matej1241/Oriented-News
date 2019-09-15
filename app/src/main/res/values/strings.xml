@@ -13,4 +13,5 @@
     <string name="botNavBarNewsTitle">News</string>
     <string name="botNavBarFavouritesTitle">Favourites</string>
     <string name="botNavBarProfileTitle">Profile</string>
+    <string name="title_activity_news_web_view">NewsWebView</string>
 </resources>

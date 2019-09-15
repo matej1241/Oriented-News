@@ -14,6 +14,7 @@ interface NewsRightContract {
         fun setView(view: View)
         fun getNews()
         fun insertNews(favouriteNews: FavouriteNews)
+        fun removeFavourite(link: String)
         fun getCurrentUser(): String
     }
 }

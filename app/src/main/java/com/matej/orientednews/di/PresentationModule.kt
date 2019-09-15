@@ -6,6 +6,7 @@ import com.matej.orientednews.ui.authentication.registration.RegisterContract
 import com.matej.orientednews.ui.news.favourites.FavouritesContract
 import com.matej.orientednews.ui.news.newsList.leftNews.NewsLeftContract
 import com.matej.orientednews.ui.news.newsList.rightNews.NewsRightContract
+import com.matej.orientednews.ui.news.profile.ProfileContract
 import org.koin.dsl.module
 
 val presentationModule = module {
@@ -14,4 +15,5 @@ val presentationModule = module {
     factory <NewsLeftContract.Presenter>{NewsLeftPresenter(get(), get(), get())}
     factory <NewsRightContract.Presenter>{ NewsRightPresenter(get(), get(), get()) }
     factory <FavouritesContract.Presenter> { FavouritesPresenter(get(), get()) }
+    factory <ProfileContract.Presenter> { ProfilePresenter(get(), get(), get()) }
 }

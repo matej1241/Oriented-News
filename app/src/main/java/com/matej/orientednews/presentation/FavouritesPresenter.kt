@@ -8,17 +8,24 @@ import com.matej.orientednews.ui.news.favourites.FavouritesContract
 class FavouritesPresenter(
     private val currentUserUseCase: CurrentUserUseCase,
     private val favouritesDbInteractor: FavouritesDbInteractor): FavouritesContract.Presenter {
-
     private lateinit var view: FavouritesContract.View
 
     override fun setView(view: FavouritesContract.View) {
         this.view = view
     }
 
-    override fun getFavouriteNews() : List<FavouriteNews> = favouritesDbInteractor.getAllNews()
+    override fun getFavouriteNews(user: String){
+        val news = favouritesDbInteractor.getAllNews(user)
+        onGetFavouriteNewsSuccessful(news)
+    }
 
+    override fun removeFavourite(link: String) {
+        favouritesDbInteractor.delete(link)
+    }
 
     override fun getCurrentUser(): String {
         return currentUserUseCase.execute()
     }
+
+    private fun onGetFavouriteNewsSuccessful(news: List<FavouriteNews>) = view.onGetFavouritesSuccessful(news)
 }

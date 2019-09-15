@@ -2,7 +2,9 @@ package com.matej.orientednews.ui.news.favourites
 
 
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.matej.orientednews.R
 import com.matej.orientednews.model.favourites.FavouriteNews
 import com.matej.orientednews.model.rss.Items
@@ -27,23 +29,31 @@ class FavouritesFragment : BaseFragment(), FavouritesContract.View {
     }
 
     private fun getFavourites() {
-        val news = presenter.getFavouriteNews()
-        adapter.setData(news)
+        presenter.getFavouriteNews(presenter.getCurrentUser())
     }
 
     override fun setOnClickListeners() {
+        swipeToDeleteListener()
     }
 
     override fun onGetFavouritesSuccessful(favoriteNews: List<FavouriteNews>) {
+        adapter.setData(favoriteNews)
     }
 
-    override fun onGetFavouritesFailed() {
-    }
+    private fun swipeToDeleteListener() {
+        val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder
+            ): Boolean = false
 
-    override fun onGetCurrentUserSuccessful(currentUser: String) {
-    }
-
-    override fun onGetCurrentUserFailed() {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val currentNews = adapter.getCurrentItem(position)
+                adapter.removeItem(currentNews)
+                presenter.removeFavourite(currentNews.link)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(itemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(favouritesRecyclerView)
     }
 
     companion object {
