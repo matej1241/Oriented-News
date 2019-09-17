@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/authEmailMarginTop"
             android:hint="@string/email"
+            android:inputType="textEmailAddress"
     />
     <EditText
             android:id="@+id/regUsername"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/authPasswordMarginTop"
             android:hint="@string/password"
+            android:inputType="textPassword"
     />
     <Button
             android:id="@+id/registerButton"

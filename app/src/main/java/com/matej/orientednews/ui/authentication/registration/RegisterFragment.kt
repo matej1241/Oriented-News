@@ -23,6 +23,7 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     override fun getLayoutResourceId(): Int = R.layout.fragment_registration
 
     override fun setupUi() {
+        registerProgress.visibility = View.GONE
         presenter.setView(this)
     }
 
@@ -32,7 +33,7 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     private fun onRegisterClicked() {
-        loginProgress.visibility = View.VISIBLE
+        registerProgress.visibility = View.VISIBLE
         presenter.onRegisterClicked(
             UserDataRequest(
                 regEmail.text.toString(),
@@ -47,12 +48,12 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
     }
 
     override fun onRegisterSuccessful() {
-        loginProgress.visibility = View.GONE
+        registerProgress.visibility = View.GONE
         startActivity(NewsActivity::class.java)
     }
 
     override fun onRegisterFailed() {
-        loginProgress.visibility = View.GONE
+        registerProgress.visibility = View.GONE
         Toast.makeText(OrientedNews.instance, "Pogreska", Toast.LENGTH_SHORT).show()
     }
 
