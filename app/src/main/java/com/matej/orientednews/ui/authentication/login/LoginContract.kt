@@ -12,5 +12,6 @@ interface LoginContract {
     interface Presenter{
         fun setView(view: View)
         fun onLoginClicked(userDataRequest: UserDataRequest)
+        fun getCurrentUser(): String?
     }
 }

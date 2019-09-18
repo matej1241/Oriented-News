@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val presentationModule = module {
     factory <RegisterContract.Presenter>{ RegisterPresenter(get()) }
-    factory <LoginContract.Presenter>{ LoginPresenter(get()) }
+    factory <LoginContract.Presenter>{ LoginPresenter(get(), get()) }
     factory <NewsLeftContract.Presenter>{NewsLeftPresenter(get(), get(), get())}
     factory <NewsRightContract.Presenter>{ NewsRightPresenter(get(), get(), get()) }
     factory <FavouritesContract.Presenter> { FavouritesPresenter(get(), get()) }

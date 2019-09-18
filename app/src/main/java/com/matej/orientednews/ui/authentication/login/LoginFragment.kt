@@ -24,6 +24,9 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     override fun setupUi() {
         loginProgress.visibility = View.GONE
         presenter.setView(this)
+        if(presenter.getCurrentUser() != "null"){
+            startActivity(NewsActivity::class.java)
+        }
     }
 
     override fun setOnClickListeners() {
